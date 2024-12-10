@@ -1,9 +1,9 @@
 <?php
 // Kết nối tới cơ sở dữ liệu MySQL
-$host = "localhost";         // Địa chỉ máy chủ
-$dbname = "ProductsDB";      // Tên cơ sở dữ liệu
-$username = "root";          // Tên người dùng
-$password = "";              // Mật khẩu (để trống nếu sử dụng mặc định)
+$host = "localhost";      
+$dbname = "ProductsDB";     
+$username = "root";          
+$password = "";              
 
 $conn = new mysqli($host, $username, $password, $dbname);
 

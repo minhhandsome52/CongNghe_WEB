@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $productModel->createProduct($name, $price);
-    header("Location: http://localhost/BTAPVN/MVC/public/"); // Đảm bảo URL chính xác
+    header("Location: http://localhost/BTAPVN/MVC/public/");
     exit();
 }
 
@@ -19,7 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_product'])) {
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $productModel->deleteProduct($id);
-    header("Location: http://localhost/BTAPVN/MVC/public/"); // Đảm bảo URL chính xác
+    header("Location: http://localhost/BTAPVN/MVC/public/");
     exit();
+}
+// Xử lý yêu cầu xóa sản phẩm
+if (isset($_POST['delete_product'])) {
+    $product_id = $_POST['product_id'];
+    if (is_numeric($product_id)) {
+        $productModel->deleteProduct($product_id);
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    }
 }
 ?>

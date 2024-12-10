@@ -28,5 +28,6 @@ class Product {
         $stmt->bind_param("i", $id); // "i" cho integer
         return $stmt->execute();
     }
+
 }
 ?>
