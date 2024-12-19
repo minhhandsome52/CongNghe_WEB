@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('computers', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->text("content");
-            $table->timestamps();
+        $table->string('computer_name', 50);
+        $table->string('model', 100);
+        $table->string('operating_system', 50);
+        $table->string('processor', 50);
+        $table->integer('memory');
+        $table->boolean('available');
+        $table->timestamps();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('computers');
     }
 };

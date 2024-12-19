@@ -1,19 +1,16 @@
 <?php
+
+use App\Http\Controllers\IssueController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-Route::get("/", [PostController::class, "index"]);
-Route::get('/', PostController::class .'@index')->name('posts.index');
-// returns the form for adding a post
-Route::get('/posts/create', PostController::class . '@create')->name('posts.create');
-// adds a post to the database
-Route::post('/posts', PostController::class .'@store')->name('posts.store');
-// returns a page that shows a full post
-Route::get('/posts/{post}', PostController::class .'@show')->name('posts.show');
-// returns the form for editing a post
-Route::get('/posts/{post}/edit', PostController::class .'@edit')->name('posts.edit');
-// updates a post
-Route::put('/posts/{post}', PostController::class .'@update')->name('posts.update');
-// deletes a post
-Route::delete('/posts/{post}', PostController::class .'@destroy')->name('posts.destroy');
 
+Route::get('/', [IssueController::class, 'index'])->name('issues.index');
 
+Route::get('/issues/create', [IssueController::class, 'create'])->name('issues.create');
+
+Route::post('/issues', [IssueController::class, 'store'])->name('issues.store');
+
+Route::get('/issues/{id}/edit', [IssueController::class, 'edit'])->name('issues.edit');
+
+Route::put('/issues/{id}', [IssueController::class, 'update'])->name('issues.update');
+
+Route::delete('/issues/{id}', [IssueController::class, 'destroy'])->name('issues.destroy');
